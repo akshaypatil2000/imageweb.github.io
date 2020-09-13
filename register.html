@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Register Page</title>
+    <meta  name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+ <style media="screen">
+body{
+  background-image: url('laptop.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding:15px;
+}
+ .main{
+   background: white;
+   width: 400px;
+   height: auto;
+   border-radius: 5px;
+   position: absolute;
+   top:50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   box-shadow: 0px 20px 30px black;
+   font-weight: bold;
+   }
+   form{
+     padding: 20px 30px 20px 30px;
+   }
+   img{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+    margin: auto;
+   }
+   @media only screen and (max-width:450px){
+     .main{
+       width: 300px;
+     }
+   }
+ </style>
+  </head>
+  <body>
+    <div class="main">
+       <form class="" action="index.html" method="post">
+           <img src="img1.png" alt="" width="70px" height="70px">
+         <div class="form-group">
+           <label for="">Username :</label><br>
+           <input type="text" name="username" value="" class="form-control" required placeholder="Your Username" >
+         </div>
+         <div class="form-group">
+           <label for="">Eamil :</label><br>
+           <input type="text" name="email" value="" class="form-control" required placeholder="Your Email" >
+         </div>
+         <div class="form-group">
+           <label for="">Password :</label><br>
+           <input type="password" name="password" value="" class="form-control" required placeholder="Your Password">
+         </div>
+           <input type="submit" name="submit" value="Register" class="form-control btn btn-success">
+       </form>
+    </div>
+  </body>
+</html>

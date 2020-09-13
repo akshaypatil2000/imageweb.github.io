@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Images</title>
+    <meta  name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style media="screen">
+    body{
+      background:white;
+    }
+    #loader{
+      width: 100%;
+      height: 100vh;
+      background: white url('loader.gif') no-repeat center;
+    }
+    .nav{
+      margin-bottom: 10px;
+    }
+    .nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      background: black;
+      width: 100%;
+    }
+    .nav ul li{
+      float: left;
+     }
+    .nav ul li a{
+      display: block;
+      width: 150px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .nav ul li a:hover{
+      background: #aaa;
+      transition: ease 2s all;
+    }
+    .mobiles{
+      display: none;
+    }
+    .icons{
+      display: none;
+    }
+    @media only screen and (max-width:700px) {
+      .nav{
+        display: none;
+       }
+       .mobiles{
+         display: block;
+       }
+       .mobiles ul{
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+         background: black;
+       }
+       .mobiles li a{
+         display: block;
+         text-align: center;
+         padding: 14px 16px;
+         text-decoration: none;
+         text-transform: uppercase;
+         cursor: pointer;
+         font-weight: bold;
+         font-size: 16px;
+         color: white;
+       }
+       .mobiles li a:hover{
+         background: #aaa;
+         transition: ease 2s all;
+       }
+       .icons{
+         display: block;
+         background: black;
+         color:white;
+         width: 100%;
+         padding: 10px 20px;
+         text-align: right;
+         box-sizing: border-box;
+       }
+       .icons:before
+       {
+         content: '\f0c9';
+         font-family: 'fontawesome';
+         cursor: pointer;
+         font-size: 20px;
+       }
+       .icons.closenav:before
+       {
+         content: '\f00d';
+         font-size: 20px;
+       }
+       .mobiles{
+         display: none;
+       }
+       .mobiles.active{
+         display: block;
+       }
+    }
+
+    .gallery img{
+      width: 100%;
+      height: auto;
+    }
+    div.gallery {
+      border: 1px solid #ccc;
+      box-shadow: 1px 2px 3px black;
+      margin-bottom: 10px;
+
+   }
+    div.gallery:hover {
+      border: 1px solid #777;
+    }
+    div.desc {
+      padding: 15px;
+      background: white;
+    }
+    h5{
+      color:white;
+    }
+    .myfooter ul li{
+     display: inline-block;
+     border: 1px solid white;
+     padding: 9px;
+     border-radius: 50px;
+     margin: 5px;
+     background: white;
+    }
+    .myfooter ul li a{
+      color:black;
+      text-decoration: none;
+      font-size: 23px;
+    }
+    .myfooter ul li:hover{
+    box-shadow: 1px 2px 3px skyblue;
+    }
+    .myfooter a{
+      text-decoration: none;
+    }
+
+    </style>
+  </head>
+  <body onload="myFunction()">
+
+    <div id="loader">    </div>
+      <div class="nav sticky-top" style="border-bottom:3px solid orange;">
+        <ul>
+          <li> <a href="#" class="bg-success hover-bg-success">Home</a> </li>
+          <li> <a href="aboutus.html" target="_blank">About</a> </li>
+          <li> <a href="contactus.html" target="_blank">Contact</a></li>
+          <li> <a href="#">More</a></li>
+          <li class="float-right  btn btn-primary m-2" data-toggle="modal" data-target="#myModal"> Login</li>
+        </ul>
+      </div>
+
+    <div class="icons" > </div>
+
+    <div class="mobiles pb-2" id="mobiles" style="background:black; ">
+          <ul>
+          <li> <a href="#" class="bg-success hover-bg-success">Home</a> </li>
+          <li> <a href="aboutus.html" target="_blank">About</a> </li>
+          <li> <a href="contactus.html" target="_blank">Contact</a> </li>
+          <li> <a href="#">More</a></li>
+          </ul>
+            <div class="button "><center>
+            <a href="#myModal">  <button type="button" name="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal">Login</button>
+            </a>
+          </center>
+            </div>
+      </div>
+
+
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+            <div class="modal-body">
+              <h4 class="text-center">Login</h4>
+              <form class="p-1" action="index.html" method="post">
+
+                <div class="form-group">
+                    <input type="email" name="" value="" placeholder="Email" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" name="" value="" placeholder="Password" required class="form-control">
+                </div>
+
+                <input type="submit" name="" value="Submit" class="btn btn-primary btn-sm">
+                <input type="reset" name="" value="Reset" class="btn btn-danger btn-sm"><br>
+                 Don't have account?<a href="register.html">Create account</a>
+              </form>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section>
+  <div class="container">
+    <div class="button-group p-2">
+      <center>
+      <a href="#cars"><button type="button" name="button" class="btn btn-outline-dark shadow-sm m-1" onclick="document.getElementById('cars').style.display=block">Cars</button></a>
+      <a href="#bikes"><button type="button" name="button" class="btn btn-outline-dark  shadow-sm m-1" onclick="document.getElementById('bikes').style.display='block'">Bikes</button></a>
+      <a href="#birds"><button type="button" name="button" class="btn btn-outline-dark  shadow-sm m-1" onclick="document.getElementById('birds').style.display='block'">Birds</button></a>
+      <a href="#flowers"><button type="button" name="button" class="btn btn-outline-dark  shadow-sm m-1" onclick="document.getElementById('flowers').style.display='block'">Flowers</button></a>
+      <a href="#"><button type="button" name="button" class="btn btn-outline-dark  shadow-sm m-1" onclick="alert('No images found.')">Trees</button></a>
+      <a href="#"><button type="button" name="button" class="btn btn-outline-dark  shadow-sm m-1" onclick="alert('No images found.')">Rivers</button></a>
+      <a href="#"><button type="button" name="button" class="btn btn-outline-dark  shadow-sm m-1" onclick="alert('No images found.')">Fruits</button></a>
+    </center>
+    </div>
+  </div>
+</section>
+
+
+<div class="container-fluid mt-2 mb-5" id="cars">
+  <div class="row">
+        <div class="col-lg-3 col-sm-6 ">
+          <div class="gallery"><a href="audi.jpg" target="_blank">
+            <img src="audi.jpg" alt="" width="300px" height="300px"></a>
+            <div class="desc">
+                <i class="fa fa-heart heart" style="font-size:20px;"></i>
+                <a href="audi.jpg" class="fa fa-download">&nbsp Download</a>
+            </div>
+          </div>
+        </div>
+      <div class="col-lg-3 col-sm-6">
+        <div class="gallery"><a href="lamborghini.jpg" target="_blank">
+          <img src="lamborghini.jpg" alt="" width="300px" height="300px"></a>
+          <div class="desc">
+            <i class="fa fa-heart heart" style="font-size:20px;"></i>
+            <a href="lamborghini.jpg" class="fa fa-download">&nbsp Download</a>
+          </div>
+        </div>
+      </div>
+    <div class="col-lg-3 col-sm-6 ">
+      <div class="gallery"><a href="mercedes.jpg" target="_blank">
+        <img src="mercedes.jpg" alt="" width="300px" height="300px"></a>
+        <div class="desc">
+          <i class="fa fa-heart heart" style="font-size:20px;"></i>
+          <a href="mercedes.jpg" class="fa fa-download">&nbsp Download</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+      <div class="gallery"><a href="ferarri.jpg" target="_blank">
+        <img src="ferarri.jpg" alt="" width="300px" height="300px"></a>
+        <div class="desc">
+          <i class="fa fa-heart heart" style="font-size:20px;"></i>
+          <a href="ferarri.jpg" class="fa fa-download">&nbsp Download</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-3 col-sm-6 ">
+    <div class="gallery"><a href="kawasaki.jpg" target="_blank">
+      <img src="kawasaki.jpg" alt="" width="300px" height="300px"></a>
+      <div class="desc">
+        <i class="fa fa-heart heart" style="font-size:20px;"></i>
+        <a href="kawasaki.jpg" class="fa fa-download">&nbsp Download</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-sm-6">
+    <div class="gallery"><a href="lamborghini.jpg" target="_blank">
+      <img src="lamborghini.jpg" alt="" width="300px" height="300px"></a>
+      <div class="desc">
+        <i class="fa fa-heart heart" style="font-size:20px;"></i>
+        <a href="lamborghini.jpg" class="fa fa-download">&nbsp Download</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-sm-6 ">
+    <div class="gallery"><a href="mercedes.jpg" target="_blank">
+      <img src="mercedes.jpg" alt="" width="300px" height="300px"></a>
+      <div class="desc">
+        <i class="fa fa-heart heart" style="font-size:20px;"></i>
+        <a href="mercedes.jpg" class="fa fa-download">&nbsp Download</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-sm-6">
+    <div class="gallery"><a href="audi.jpg" target="_blank">
+      <img src="audi.jpg" alt="" width="300px" height="300px"></a>
+      <div class="desc">
+        <i class="fa fa-heart heart" style="font-size:20px;"></i>
+        <a href="audi.jpg" class="fa fa-download">&nbsp Download</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+      <div class="col-lg-3 col-sm-6 ">
+        <div class="gallery"><a href="bugatti-veyron.jpg" target="_blank">
+          <img src="bugatti-veyron.jpg" alt="" width="300px" height="300px"></a>
+          <div class="desc">
+            <i class="fa fa-heart heart" style="font-size:20px;"></i>
+            <a href="bugatti-veyron.jpg" class="fa fa-download">&nbsp Download</a>
+          </div>
+        </div>
+      </div>
+    <div class="col-lg-3 col-sm-6">
+      <div class="gallery"><a href="bmw.png" target="_blank">
+        <img src="bmw.png" alt="" width="300px" height="300px"></a>
+        <div class="desc">
+          <i class="fa fa-heart heart" style="font-size:20px;"></i>
+          <a href="bmw.png" class="fa fa-download">&nbsp Download</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 ">
+      <div class="gallery"><a href="bugatti.jpg" target="_blank">
+        <img src="bugatti.jpg" alt="" width="300px" height="300px"></a>
+        <div class="desc">
+          <i class="fa fa-heart heart" style="font-size:20px;"></i>
+          <a href="bugatti.jpg" class="fa fa-download">&nbsp Download</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+      <div class="gallery"><a href="bmw1.jpg" target="_blank">
+        <img src="bmw1.jpg" alt="" width="300px" height="300px"></a>
+        <div class="desc">
+          <i class="fa fa-heart heart" style="font-size:20px;"></i>
+          <a href="bmw1.jpg" class="fa fa-download">&nbsp Download</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>
+
+<section>
+  <div class="container-fluid  mb-5" style="display:none" id="bikes">
+    <h3 class="text-center text-white  p-2 mb-4 bg-info">Bikes</h3>
+    <div class="row">
+            <div class="col-lg-3 col-sm-6 ">
+              <div class="gallery"><a href="duke1.jpg" target="_blank">
+                <img src="duke1.jpg" alt="" width="300px" height="300px"></a>
+                <div class="desc">   <i class="fa fa-heart heart" style="font-size:20px;"></i>
+                  <a href="duke1.jpg" class="fa fa-download">&nbsp Download</a>
+                 </div>
+              </div>
+            </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="gallery"><a href="kawasaki-bike.jpg" target="_blank">
+              <img src="kawasaki-bike.jpg" alt="" width="300px" height="300px"></a>
+              <div class="desc">
+                <i class="fa fa-heart heart" style="font-size:20px;"></i>
+                <a href="kawasaki-bike.jpg" class="fa fa-download">&nbsp Download</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 ">
+          <div class="gallery"><a href="ktm1.jpg" target="_blank">
+            <img src="ktm1.jpg" alt="" width="300px" height="300px"></a>
+            <div class="desc">
+              <i class="fa fa-heart heart" style="font-size:20px;"></i>
+              <a href="ktm1.jpg" class="fa fa-download">&nbsp Download</a>
+             </div>
+          </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="gallery"><a href="kawasaki-bike1.jpg" target="_blank">
+              <img src="kawasaki-bike1.jpg" alt="" width="300px" height="300px"></a>
+              <div class="desc">
+                <i class="fa fa-heart heart" style="font-size:20px;"></i>
+                <a href="kawasaki-bike1.jpg" class="fa fa-download">&nbsp Download</a>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="row">
+            <div class="col-lg-3 col-sm-6 ">
+              <div class="gallery"><a href="bmw-bike1.jpg" target="_blank">
+                <img src="bmw-bike1.jpg" alt="" width="300px" height="300px"></a>
+                <i class="fa fa-heart heart" style="font-size:20px;"></i>
+                <a href="bmw-bike1.jpg" class="fa fa-download">&nbsp Download</a>
+              </div>
+            </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="gallery"><a href="ducatti-bike1.jpg" target="_blank">
+              <img src="ducatti-bike1.jpg" alt="" width="300px" height="300px"></a>
+              <div class="desc">
+                <i class="fa fa-heart"></i>
+                <a href="ducatti-bike1.jpg" class="fa fa-download">&nbsp Download</a>
+                   </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 ">
+          <div class="gallery"><a href="bmw-bike2.jpg" target="_blank">
+            <img src="bmw-bike2.jpg" alt="" width="300px" height="300px"></a>
+            <div class="desc">
+              <i class="fa fa-heart heart" style="font-size:20px;"></i>
+              <a href="bmw-bike2.jpg" class="fa fa-download">&nbsp Download</a>
+             </div>
+          </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="gallery"><a href="ktm3.png" target="_blank">
+              <img src="ktm3.png" alt="" width="300px" height="300px"></a>
+              <div class="desc">
+                <i class="fa fa-heart heart" style="font-size:20px;"></i>
+                <a href="ktm3.png" class="fa fa-download">&nbsp Download</a>
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+        <div class="row">
+                <div class="col-lg-3 col-sm-6 ">
+                  <div class="gallery"><a href="ducatti-bike3.jpg" target="_blank">
+                    <img src="ducatti-bike3.jpg" alt="" width="300px" height="300px"></a>
+                    <div class="desc">   <i class="fa fa-heart heart" style="font-size:20px;"></i>
+                      <a href="ducatti-bike3.jpg" class="fa fa-download">&nbsp Download</a>
+                     </div>
+                  </div>
+                </div>
+              <div class="col-lg-3 col-sm-6">
+                <div class="gallery"><a href="kawasaki-bike2.jpg" target="_blank">
+                  <img src="kawasaki-bike2.jpg" alt="" width="300px" height="300px"></a>
+                  <div class="desc">
+                    <i class="fa fa-heart heart" style="font-size:20px;"></i>
+                    <a href="kawasaki-bike2.jpg" class="fa fa-download">&nbsp Download</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-sm-6 ">
+              <div class="gallery"><a href="ktm2.jpg" target="_blank">
+                <img src="ktm2.jpg" alt="" width="300px" height="300px"></a>
+                <div class="desc">
+                  <i class="fa fa-heart heart" style="font-size:20px;"></i>
+                  <a href="ktm2.jpg" class="fa fa-download">&nbsp Download</a>
+                </div>
+              </div>
+              </div>
+              <div class="col-lg-3 col-sm-6">
+                <div class="gallery"><a href="ducatti-bike2.jpg" target="_blank">
+                  <img src="ducatti-bike2.jpg" alt="" width="300px" height="300px"></a>
+                  <div class="desc">
+                    <i class="fa fa-heart heart" style="font-size:20px;"></i>
+                    <a href="ducatti-bike2.jpg" class="fa fa-download">&nbsp Download</a>
+                  </div>
+                </div>
+              </div>
+        </div>
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid mb-5" id="birds" style="display:none">
+
+    <h2 class="text-center text-white  p-2 mb-4 bg-info">Birds</h2>
+
+    <div class="row">
+      <div class="col-lg-3 col-sm-6 ">
+        <div class="gallery"><a href="parrot.jpg" target="_blank">
+          <img src="parrot.jpg" alt="" width="300px" height="300px"></a>
+          <div class="desc">
+            <i class="fa fa-heart heart" style="font-size:20px;"></i>
+            <a href="parrot.jpg" class="fa fa-download">&nbsp Download</a>
+          </div>
+        </div>
+      </div>
+    <div class="col-lg-3 col-sm-6">
+      <div class="gallery"><a href="bird1.jpg" target="_blank">
+        <img src="bird1.jpg" alt="" width="300px" height="300px"></a>
+        <div class="desc">
+          <i class="fa fa-heart heart" style="font-size:20px;"></i>
+          <a href="bird1.jpg" class="fa fa-download">&nbsp Download</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 ">
+    <div class="gallery"><a href="bird.jpg" target="_blank">
+      <img src="bird.jpg" alt="" width="300px" height="300px"></a>
+      <div class="desc">
+        <i class="fa fa-heart heart" style="font-size:20px;"></i>
+        <a href="bird.jpg" class="fa fa-download">&nbsp Download</a>
+      </div>
+    </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+      <div class="gallery"><a href="parrot2.jpg" target="_blank">
+        <img src="parrot2.jpg" alt="" width="300px" height="300px"></a>
+        <div class="desc">
+          <i class="fa fa-heart heart" style="font-size:20px;"></i>
+          <a href="parrot2.jpg" class="fa fa-download">&nbsp Download</a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid mb-4" id="flowers" style="display:none">
+
+    <h2 class="text-center text-white  p-2 mb-4 bg-info">Flowers</h2>
+
+    <div class="row">
+      <div class="col-lg-3 col-sm-6">
+        <div class="gallery"><a href="flower1.jpg" target="_blank">
+          <img src="flower1.jpg" alt="" width="300px" height="300px"></a>
+          <div class="desc">    <i class="fa fa-heart heart" style="font-size:20px;"></i>
+            <a href="flower1.jpg" class="fa fa-download">&nbsp Download</a>
+          </div>
+        </div>
+      </div>
+    <div class="col-lg-3 col-sm-6">
+      <div class="gallery"><a href="flower2.jpg" target="_blank">
+        <img src="flower2.jpg" alt="" width="300px" height="300px"></a>
+        <div class="desc">
+          <i class="fa fa-heart heart" style="font-size:20px;"></i>
+          <a href="flower2.jpg" class="fa fa-download">&nbsp Download</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 ">
+    <div class="gallery"><a href="flower3.jpg" target="_blank">
+      <img src="flower3.jpg" alt="" width="300px" height="300px"></a>
+      <div class="desc">
+        <i class="fa fa-heart heart" style="font-size:20px;"></i>
+        <a href="flower3.jpg" class="fa fa-download">&nbsp Download</a>
+      </div>
+    </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+      <div class="gallery">
+        <a href="flower4.jpg" target="_blank">
+          <img src="flower4.jpg" alt="" width="300px" height="300px"></a>
+        <div class="desc">
+          <i class="fa fa-heart heart" style="font-size:20px;"></i>
+          <a href="flower4.jpg" class="fa fa-download">&nbsp Download</a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="container-fluid ">
+    <div class="row p-2 bg-dark">
+        <div class="col-lg-3 col-md-6 col-sm-6  p-1 text-white">
+          <h5 class="text-center">ABOUT US</h5>
+
+           <p>This website is showing best various types of images.
+             we given a above menu buttons through which you can get images of your choice
+             just one click.</p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6  p-2 text-white">
+          <h5 class="text-center">SERVICES</h5>
+          <span class="ml-2">Ferarri Cars images</span><br>
+          <span class="ml-2">Audi Cars images</span><br>
+          <span class="ml-2">Mercedes Benz Cars images</span><br>
+          <span class="ml-2">Lamborghini Cars images</span><br>
+          <span class="ml-2">Animal images</span><br>
+          <span class="ml-2">Fruits images</span><br>
+          <span class="ml-2">Bird images</span><br>
+
+
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6  p-2 pl-3 text-white">
+          <h5 class="text-center">ADDRESS</h5>
+          <i class="fas fa-map-marker-alt mt-2 text-white"></i> &nbsp&nbsp  YYY Road,Belgaum.<br>
+            <div class="image mt-3">
+              <img src="map.jpg" alt="" width="100px" height="100px">
+
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6  p-2 text-white">
+          <h5 class="text-center">CONTACT US</h5>
+          <a href="" class=" fa fa-whatsapp text-white"> &nbsp&nbsp +918762773564</a><br>
+          <a href="tel:8722773564" class="mobilesOnly fa fa-phone text-white"> &nbsp&nbsp +918762773564</a><br>
+          <i class="fas fa-envelope-open mt-2 "></i>&nbsp&nbsp patilakshayap2000@gamil.com <br>
+
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 myfooter bg-dark">
+        <center>
+          <ul type="none">
+            <li><a href="#" class="fa fa-facebook-square "></a></li>
+            <li><a href="#" class="fa fa-twitter"></a></li>
+            <li><a href="#" class="fa fa-instagram"></a></li>
+            <li><a href="#" class="fa fa-skype"></a></li>
+          </ul>
+      </center>
+          <h6 class="text-white text-center">Created By : Akshay Patil</h6>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('.icons').click(function(){
+      $('.icons').toggleClass('closenav');
+      $('.mobiles').toggleClass('active');
+      });
+    });
+    </script>
+
+    <script>
+
+    loader = document.getElementById('loader');
+
+    function myFunction() {
+      loader.style.display='none';
+
+    }
+
+    </script>
+
+  </body>
+</html>
